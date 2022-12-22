@@ -1,0 +1,17 @@
+.wrapper {
+  padding: 8px;
+  border: 1px solid;
+  border-radius: 2px;
+
+  &:hover {
+    //background-color: black;
+  }
+
+  &:active {
+  }
+}
+
+.outline {
+  border: 3px solid #49ff00;
+  border-radius: 20px;
+}

@@ -1,0 +1,44 @@
+.wrapper {
+  height: 50px;
+  width: 100%;
+  border-bottom: 1px solid black;
+  padding: 0 16px;
+  background-color: #261c2c;
+  border-color: #6e85b2;
+}
+
+.content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #6e85b2;
+}
+
+.left-section {
+  display: flex;
+
+  .navbar-btn {
+    margin-right: 16px;
+    font-size: 2rem;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  }
+}
+
+.social-media {
+  display: flex;
+
+  .container:not(:last-child) {
+    margin-right: 6px;
+  }
+
+  .title {
+    font-size: 1.6rem;
+  }
+}
+
+.brand-icon {
+  width: 30px;
+  height: 30px;
+}
