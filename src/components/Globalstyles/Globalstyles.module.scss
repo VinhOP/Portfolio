@@ -4,7 +4,22 @@
   box-sizing: border-box;
 }
 
+:root {
+  --primary-color: #00ffdd;
+  --secondary-color: #ff00c8;
+}
+
 button {
+  cursor: pointer;
+  background-color: transparent;
+
+  &:hover {
+    background-color: #46c2cb;
+  }
+
+  &:active {
+    background-color: #111111;
+  }
 }
 
 html {

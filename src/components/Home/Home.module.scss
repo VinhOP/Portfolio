@@ -8,3 +8,32 @@
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
+
+.logos {
+  width: 20px;
+  height: 20px;
+  margin: 0 6px;
+}
+
+.react-logo {
+  color: #61dafb;
+}
+
+.heart-logo {
+  color: red;
+}
+.footer {
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+
+  .description {
+    width: 100%;
+    display: flex;
+    margin-top: 30px;
+    justify-content: center;
+    font-size: 1.3rem;
+    color: white;
+  }
+}
