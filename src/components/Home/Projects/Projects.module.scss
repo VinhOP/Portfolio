@@ -82,12 +82,27 @@
 .used-tech {
   color: #00ffdd;
   margin: 32px 0;
+  width: 70%;
+  text-align: center;
+
+  span {
+    color: var(--secondary-color);
+    margin-right: 6px;
+  }
 }
 
 .link-btn {
   background-color: transparent;
   color: white;
   cursor: pointer;
+
+  &:hover {
+    background-color: var(--primary-color);
+  }
+
+  &:active {
+    background-color: #ccc;
+  }
 
   span {
     padding: 4px;

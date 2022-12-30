@@ -4,11 +4,7 @@ import styles from "./Globalstyles.module.scss";
 
 const cx = classNames.bind(styles);
 
-interface Props {
-  children: React.ReactNode;
-}
-
-function Globalstyles({ children }: Props) {
+function Globalstyles({ children }) {
   return <div className={cx("wrapper")}>{children}</div>;
 }
 

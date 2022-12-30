@@ -3,10 +3,25 @@ import styles from "./Button.module.scss";
 
 const cx = classNames.bind(styles);
 
-function Button({ children, onClick, outline, className }) {
+function Button({
+  children,
+  onClick,
+  outline = false,
+  href = false,
+  target = false,
+  className,
+}) {
   const props = {
     onClick,
+    target,
   };
+
+  let Comp = "button";
+
+  if (href) {
+    props.href = href;
+    Comp = "a";
+  }
 
   const classes = cx("wrapper", {
     outline,
@@ -14,9 +29,9 @@ function Button({ children, onClick, outline, className }) {
   });
 
   return (
-    <button className={classes} {...props}>
+    <Comp className={classes} {...props}>
       <span className={cx("title")}> {children} </span>
-    </button>
+    </Comp>
   );
 }
 

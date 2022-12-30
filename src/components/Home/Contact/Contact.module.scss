@@ -25,7 +25,16 @@
   background-image: linear-gradient(to right, #1c1427, #40394a);
 }
 
+.input-section {
+  // width: 100%;
+
+  &:not(:last-child) {
+    margin-bottom: 24px;
+  }
+}
+
 .input {
+  width: 100%;
   background-color: transparent;
   color: white;
   border: none;
@@ -35,15 +44,36 @@
   outline: none;
   padding: 8px 0;
   resize: none;
+}
 
-  &:not(:last-child) {
-    margin-bottom: 24px;
-  }
+.error-notice {
+  display: none;
+  color: red;
+  font-size: 1.4rem;
+  margin-top: 8px;
+}
+
+.active {
+  display: block;
 }
 
 .submit-btn {
+  width: 160px;
   padding: 12px;
   font-size: 1.5rem;
   color: white;
   margin-left: auto;
+}
+
+.spinner {
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }

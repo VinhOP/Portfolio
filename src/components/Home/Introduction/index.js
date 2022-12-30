@@ -1,12 +1,13 @@
 import classNames from "classnames/bind";
+import { forwardRef } from "react";
 import Image from "../../Image";
 import styles from "./Introduction.module.scss";
 
 const cx = classNames.bind(styles);
-function Introduction() {
+const Introduction = forwardRef((props, ref) => {
   return (
     <div className={cx("wrapper")}>
-      <div className={cx("content")}>
+      <div className={cx("content")} ref={ref}>
         <div className={cx("header")}>
           <div className={cx("avatar-container")}>
             <Image
@@ -20,10 +21,10 @@ function Introduction() {
             <h2 className={cx("hobby")}> CODING </h2>
           </div>
         </div>
-        <p className={cx("description")}> I'm a front-end web developer,  </p>
+        <p className={cx("description")}> I'm a front-end web developer </p>
       </div>
     </div>
   );
-}
+});
 
 export default Introduction;

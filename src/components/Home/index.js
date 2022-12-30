@@ -2,6 +2,7 @@ import { faReact } from "@fortawesome/free-brands-svg-icons";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import classNames from "classnames/bind";
+import { useRef } from "react";
 import Image from "../Image";
 import Contact from "./Contact";
 import styles from "./Home.module.scss";
@@ -12,10 +13,11 @@ import Title from "./Title";
 const cx = classNames.bind(styles);
 
 function Home() {
+  const introductionRef = useRef();
   return (
     <div className={cx("wrapper")}>
-      <Title />
-      <Introduction />
+      <Title introductionRef={introductionRef} />
+      <Introduction ref={introductionRef} />
       <Projects />
       <Contact />
       <div className={cx("footer")}>

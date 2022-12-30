@@ -1,5 +1,16 @@
 .wrapper {
   margin-top: 80px;
+  width: 100%;
+  height: 500px;
+}
+
+.content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
 }
 
 .title {
@@ -10,4 +21,13 @@
 .description {
   font-size: 6rem;
   color: #bad7e9;
+}
+
+.move-down-btn {
+  position: absolute;
+  bottom: 0;
+  padding: 16px 10px;
+  font-size: 2rem;
+  background-color: var(--primary-color);
+  opacity: 0.8;
 }

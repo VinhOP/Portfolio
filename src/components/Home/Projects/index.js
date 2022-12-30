@@ -3,27 +3,33 @@ import Image from "../../Image";
 import styles from "./Projects.module.scss";
 import laptop from "../../../images/laptop.png";
 import tiktok from "../../../images/tiktok-screenshot.png";
+import linker from "../../../images/linker-screenshot.png";
 import Button from "../../Button";
 
 const cx = classNames.bind(styles);
 function Projects() {
   const projects = [
     {
+      project_id: 1,
       project_name: "Tiktok Clone",
-      project_url: "",
+      project_url: "https://vinhop.github.io/tiktok/",
       project_screenshot: tiktok,
       project_description:
         "The famous tiktok page where people around the world share their short videos, this clone have multiple features such as register/login, like/comment, suggested users and many more!",
-      project_tech_used: "Javascript . React . Github pages . ",
+      project_tech_used:
+        "Javascript . React . Github pages . SASS . Prop types . React Router DOM . Axios . ",
     },
     {
-      project_name: "Todos List",
-      project_url: "",
-      project_screenshot: "",
-      project_description: "",
-      project_tech_used: "",
+      project_id: 2,
+      project_name: "Linker App",
+      project_url: "https://vinhop.github.io/theLinker/",
+      project_screenshot: linker,
+      project_description:
+        "A platform where you and your friends can share videos on youtube to here with only some simple step",
+      project_tech_used: "Javascript . React . Firebase . Github pages . SASS",
     },
     {
+      project_id: 3,
       project_name: "Chat App",
       project_url: "",
       project_screenshot: "",
@@ -31,6 +37,7 @@ function Projects() {
       project_tech_used: "",
     },
     {
+      project_id: 4,
       project_name: "Weather App",
       project_url: "",
       project_screenshot: "",
@@ -38,6 +45,7 @@ function Projects() {
       project_tech_used: "",
     },
     {
+      project_id: 5,
       project_name: "Mini Game",
       project_url: "",
       project_screenshot: "",
@@ -45,6 +53,7 @@ function Projects() {
       project_tech_used: "",
     },
     {
+      project_id: 6,
       project_name: "Commercial Website",
       project_url: "",
       project_screenshot: "",
@@ -56,11 +65,11 @@ function Projects() {
   return (
     <div className={cx("wrapper")}>
       <div className={cx("content")}>
-        <div className={cx("header")}> Projects I've worked on</div>
+        <div className={cx("header")}> Projects I've worked on </div>
         <div className={cx("project-list")}>
           {projects.map((project) => {
             return (
-              <div className={cx("project")}>
+              <div className={cx("project")} key={project.project_id}>
                 <div className={cx("title")}> {project.project_name} </div>
                 <div className={cx("image-section")}>
                   <div className={cx("image-container")}>
@@ -76,9 +85,14 @@ function Projects() {
                   {project.project_description || "description"}
                 </div>
                 <div className={cx("used-tech")}>
-                  {project.project_tech_used}
+                  <span> Tech used: </span> {project.project_tech_used}
                 </div>
-                <Button className={cx("link-btn")} outline>
+                <Button
+                  href={project.project_url}
+                  target={"blank"}
+                  className={cx("link-btn")}
+                  outline
+                >
                   <span> Check it out </span>
                 </Button>
               </div>
