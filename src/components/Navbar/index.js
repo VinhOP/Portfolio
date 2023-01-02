@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import classNames from "classnames/bind";
 import Button from "../Button";
 import Image from "../Image";
+import Contact from "../Home/Contact";
 import styles from "./Navbar.module.scss";
 import zalo from "../../icons/zalo.png";
 import { faMailBulk } from "@fortawesome/free-solid-svg-icons";
@@ -13,7 +14,12 @@ function Navbar() {
     <div className={cx("wrapper")}>
       <div className={cx("content")}>
         <div className={cx("left-section")}>
-          <h3 className={cx("navbar-btn")}> Contact me </h3>
+          <h3
+            className={cx("navbar-btn")}
+            //onClick={}
+          >
+            Contact me
+          </h3>
           <h3 className={cx("navbar-btn")}> About </h3>
           <h3 className={cx("navbar-btn")}> Portfolio </h3>
         </div>

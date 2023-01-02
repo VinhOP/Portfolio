@@ -1,5 +1,5 @@
 import classNames from "classnames/bind";
-import { useEffect, useRef, useState } from "react";
+import { forwardRef, useEffect, useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import Button from "../../Button";
 import styles from "./Contact.module.scss";
@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 
 const cx = classNames.bind(styles);
-function Contact() {
+const Contact = forwardRef((props, ref) => {
   const [isSending, setIsSending] = useState(false);
   const [errorName, setErrorName] = useState(false);
   const [errorEmail, setErrorEmail] = useState(false);
@@ -51,7 +51,7 @@ function Contact() {
   };
 
   return (
-    <div className={cx("wrapper")}>
+    <div className={cx("wrapper")} ref={ref}>
       <div className={cx("content")}>
         <h1 className={cx("title")}> Drop me a line </h1>
         <form
@@ -134,6 +134,6 @@ function Contact() {
       </div>
     </div>
   );
-}
+});
 
 export default Contact;

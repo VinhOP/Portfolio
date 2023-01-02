@@ -12,14 +12,17 @@ import Title from "./Title";
 
 const cx = classNames.bind(styles);
 
-function Home() {
+function Home(ref) {
   const introductionRef = useRef();
+  const contactRef = useRef();
+  ref = contactRef;
+
   return (
     <div className={cx("wrapper")}>
       <Title introductionRef={introductionRef} />
       <Introduction ref={introductionRef} />
       <Projects />
-      <Contact />
+      <Contact ref={contactRef} />
       <div className={cx("footer")}>
         <p className={cx("description")}>
           Coded using
