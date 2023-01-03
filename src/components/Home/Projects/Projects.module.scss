@@ -72,6 +72,7 @@
   font-size: 1.5rem;
   width: 60%;
   min-height: 60px;
+  height: 100%;
   display: flex;
   align-items: center;
   line-height: 2.2rem;
@@ -80,6 +81,7 @@
 }
 
 .used-tech {
+  height: 100%;
   color: #00ffdd;
   margin: 32px 0;
   width: 70%;

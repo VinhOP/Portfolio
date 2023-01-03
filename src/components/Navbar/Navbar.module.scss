@@ -6,12 +6,18 @@
   background-color: #261c2c;
   border-color: #6e85b2;
   position: fixed;
+  top: 0;
   z-index: 9999;
+  transition: 0.3s;
 
   &::after {
     content: "";
     height: 50px;
   }
+}
+
+.show-nav {
+  top: -70px;
 }
 
 .content {
@@ -30,6 +36,7 @@
     margin-right: 16px;
     font-size: 2rem;
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    cursor: pointer;
   }
 }
 

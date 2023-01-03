@@ -4,12 +4,15 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import Globalstyles from "./components/Globalstyles";
+import ModalProvider from "./Contexts/ModalContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <Globalstyles>
-      <App />
+      <ModalProvider>
+        <App />
+      </ModalProvider>
     </Globalstyles>
   </React.StrictMode>
 );

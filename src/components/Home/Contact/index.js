@@ -5,6 +5,8 @@ import Button from "../../Button";
 import styles from "./Contact.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSpinner } from "@fortawesome/free-solid-svg-icons";
+import { useModal } from "../../../Contexts/ModalContext";
+import ModalNotice from "../../ModalNotice";
 
 const cx = classNames.bind(styles);
 const Contact = forwardRef((props, ref) => {
@@ -16,12 +18,15 @@ const Contact = forwardRef((props, ref) => {
 
   const formRef = useRef();
 
+  const modal = useModal();
+
   const handleSubmit = (e) => {
+    modal.toggleModal();
     e.preventDefault();
-    formRef.current.user_name.value === "" && setErrorName(true);
-    formRef.current.user_email.value === "" && setErrorEmail(true);
-    formRef.current.subject.value === "" && setErrorSubject(true);
-    formRef.current.message.value === "" && setErrorMessage(true);
+    formRef.current.user_name.value.trim() === "" && setErrorName(true);
+    formRef.current.user_email.value.trim() === "" && setErrorEmail(true);
+    formRef.current.subject.value.trim() === "" && setErrorSubject(true);
+    formRef.current.message.value.trim() === "" && setErrorMessage(true);
 
     if (
       formRef.current.user_name.value.trim() &&
@@ -49,6 +54,13 @@ const Contact = forwardRef((props, ref) => {
         );
     }
   };
+  useEffect(() => {
+    if (modal.showModal) {
+      setTimeout(() => {
+        modal.toggleModal();
+      }, 2000);
+    }
+  }, [modal.showModal]);
 
   return (
     <div className={cx("wrapper")} ref={ref}>
@@ -130,6 +142,7 @@ const Contact = forwardRef((props, ref) => {
               )}
             </span>
           </Button>
+          {modal.showModal && <ModalNotice />}
         </form>
       </div>
     </div>

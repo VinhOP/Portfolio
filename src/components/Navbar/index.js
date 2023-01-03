@@ -7,21 +7,43 @@ import Contact from "../Home/Contact";
 import styles from "./Navbar.module.scss";
 import zalo from "../../icons/zalo.png";
 import { faMailBulk } from "@fortawesome/free-solid-svg-icons";
+import { useEffect, useState } from "react";
 
 const cx = classNames.bind(styles);
+
 function Navbar() {
+  const [show, setShow] = useState(true);
+  let theEnd = 0;
+
+  const handleToTop = () => {
+    window.scrollTo(0, 0);
+  };
+
+  const controlNavbar = () => {
+    if (window.scrollY > theEnd) {
+      setShow(true);
+    } else {
+      setShow(false);
+    }
+    theEnd = window.scrollY;
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", controlNavbar);
+    return () => {
+      window.removeEventListener("scroll", controlNavbar);
+    };
+  }, []);
+
   return (
-    <div className={cx("wrapper")}>
+    <div className={cx("wrapper", { "show-nav": show })}>
       <div className={cx("content")}>
         <div className={cx("left-section")}>
-          <h3
-            className={cx("navbar-btn")}
-            //onClick={}
-          >
-            Contact me
-          </h3>
+          <h3 className={cx("navbar-btn")}>Contact me</h3>
           <h3 className={cx("navbar-btn")}> About </h3>
-          <h3 className={cx("navbar-btn")}> Portfolio </h3>
+          <h3 className={cx("navbar-btn")} onClick={handleToTop}>
+            Portfolio
+          </h3>
         </div>
         <div className={cx("social-media")}>
           <a

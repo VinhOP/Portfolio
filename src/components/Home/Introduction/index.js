@@ -43,7 +43,7 @@ const Introduction = forwardRef((props, ref) => {
           setTimeout(() => {
             const newHobby = hobby.slice(0, hobby.length - 1);
             setHobby(newHobby);
-          }, 2000);
+          }, 1500);
         }
         if (hobby.length === 0) {
           setIndex(index + 1);
@@ -51,7 +51,7 @@ const Introduction = forwardRef((props, ref) => {
           setHobby([]);
         }
       }
-    }, 150);
+    }, 100);
   }, [hobby]);
 
   return (
@@ -61,12 +61,13 @@ const Introduction = forwardRef((props, ref) => {
           <div className={cx("avatar-container")}>
             <Image
               className={cx("avatar")}
-              src="https://scontent.fsgn8-3.fna.fbcdn.net/v/t1.15752-9/321519773_690880169214349_7584367309526186757_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=ae9488&_nc_ohc=yNqVLQqLLKEAX8QcKVS&_nc_ht=scontent.fsgn8-3.fna&oh=03_AdTBJdJzQPwL-AFAJ-z9c9tZ_xit0hGyRHhryq7WO9iqMw&oe=63D9EF9D"
+              //src="https://scontent.fsgn8-4.fna.fbcdn.net/v/t1.15752-9/323100719_706738937527014_1903464626068109633_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=ae9488&_nc_ohc=0c0AgT1ZGqwAX8Aluty&_nc_ht=scontent.fsgn8-4.fna&oh=03_AdQPcQbemJ_drQymKUo-VJ3n8Lc0hXS779PK07nJBE03iA&oe=63D9DEFB"
+              src="https://scontent.fsgn8-3.fna.fbcdn.net/v/t1.15752-9/322812064_475667091417913_7817652064011576923_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=ae9488&_nc_ohc=1zE_72f8yQUAX_h9lxB&_nc_ht=scontent.fsgn8-3.fna&oh=03_AdTHm0IHUatBsaQz6TtQuoowYy1TW_ztVw85qAJYsLpAYg&oe=63DB1B75"
               alt="avatar"
             />
           </div>
           <div className={cx("title")}>
-            <h1 className={cx("info")}>I'm Vinh and I enjoy</h1>
+            <h1 className={cx("info")}>I'm Vinh, a chill guy that enjoy :</h1>
             <div className={cx("hobby")}>
               {hobby &&
                 hobby.map((letter) => {
@@ -74,9 +75,17 @@ const Introduction = forwardRef((props, ref) => {
                 })}
               <span className={cx("cursor")}>_</span>
             </div>
+            <div className={cx("sticker")}>
+              <Image
+                className={cx("paimon")}
+                src="https://stickerly.pstatic.net/sticker_pack/iYFODRyx2vbEYoLJDuA/C6L2EL/34/913b4ea6-c5cc-46e7-91d7-cd61f429f0ff.png"
+              />
+            </div>
           </div>
         </div>
-        <p className={cx("description")}> I'm a front-end web developer </p>
+        <p className={cx("description")}>
+          {`I'm a self taught front-end web developer living in Ho Chi Minh City, I have studied web development for 5 months, I want to learn new things and grow into a senior web-developer. In my free time I used to hangout with my friend, training badmintion, playing video games or just simply listening to music with a cup of coffee.`}
+        </p>
       </div>
     </div>
   );
