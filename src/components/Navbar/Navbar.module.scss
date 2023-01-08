@@ -6,7 +6,7 @@
   background-color: #261c2c;
   border-color: #6e85b2;
   position: fixed;
-  top: 0;
+  top: 0px;
   z-index: 9999;
   transition: 0.3s;
 
@@ -16,7 +16,7 @@
   }
 }
 
-.show-nav {
+.hide-nav {
   top: -70px;
 }
 

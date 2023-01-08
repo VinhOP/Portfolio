@@ -1,4 +1,8 @@
-import { faFacebook, faGithub } from "@fortawesome/free-brands-svg-icons";
+import {
+  faCentercode,
+  faFacebook,
+  faGithub,
+} from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import classNames from "classnames/bind";
 import Button from "../Button";
@@ -8,11 +12,15 @@ import styles from "./Navbar.module.scss";
 import zalo from "../../icons/zalo.png";
 import { faMailBulk } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
+import { useModal } from "../../Contexts/MyContext";
 
 const cx = classNames.bind(styles);
 
 function Navbar() {
-  const [show, setShow] = useState(true);
+  const [hide, setHide] = useState(true);
+
+  const modal = useModal();
+
   let theEnd = 0;
 
   const handleToTop = () => {
@@ -21,9 +29,9 @@ function Navbar() {
 
   const controlNavbar = () => {
     if (window.scrollY > theEnd) {
-      setShow(true);
+      setHide(false);
     } else {
-      setShow(false);
+      setHide(true);
     }
     theEnd = window.scrollY;
   };
@@ -36,11 +44,21 @@ function Navbar() {
   }, []);
 
   return (
-    <div className={cx("wrapper", { "show-nav": show })}>
+    <div className={cx("wrapper", { "hide-nav": !hide })}>
       <div className={cx("content")}>
         <div className={cx("left-section")}>
-          <h3 className={cx("navbar-btn")}>Contact me</h3>
-          <h3 className={cx("navbar-btn")}> About </h3>
+          <h3
+            className={cx("navbar-btn")}
+            onClick={() => modal.scrollToContact()}
+          >
+            Contact me
+          </h3>
+          <h3
+            className={cx("navbar-btn")}
+            onClick={() => modal.scrollToAbout()}
+          >
+            About
+          </h3>
           <h3 className={cx("navbar-btn")} onClick={handleToTop}>
             Portfolio
           </h3>

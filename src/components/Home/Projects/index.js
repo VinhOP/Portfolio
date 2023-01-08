@@ -4,6 +4,8 @@ import styles from "./Projects.module.scss";
 import laptop from "../../../images/laptop.png";
 import tiktok from "../../../images/tiktok-screenshot.png";
 import linker from "../../../images/linker-screenshot.png";
+import musicPlayer from "../../../images/music-player-screenshot.png";
+import weatherApp from "../../../images/weather-app-screenshot.png";
 import Button from "../../Button";
 
 const cx = classNames.bind(styles);
@@ -30,19 +32,20 @@ function Projects() {
     },
     {
       project_id: 3,
-      project_name: "Chat App",
-      project_url: "",
-      project_screenshot: "",
+      project_name: "Music Player",
+      project_url: "https://vinhop.github.io/music-player/",
+      project_screenshot: musicPlayer,
       project_description: "",
-      project_tech_used: "",
+      project_tech_used: "",  
     },
     {
       project_id: 4,
       project_name: "Weather App",
-      project_url: "",
-      project_screenshot: "",
-      project_description: "",
-      project_tech_used: "",
+      project_url: "https://vinhop.github.io/weather-app/",
+      project_screenshot: weatherApp,
+      project_description:
+        "A weather app that let user know what's the temparature , you can also get the temparature at your current location. ",
+      project_tech_used: "Javascript . React . open-weather API . ",
     },
     {
       project_id: 5,

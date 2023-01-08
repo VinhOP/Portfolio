@@ -2,7 +2,8 @@ import { faReact } from "@fortawesome/free-brands-svg-icons";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import classNames from "classnames/bind";
-import { useRef } from "react";
+import { useEffect, useImperativeHandle, useRef, useState } from "react";
+import { useModal } from "../../Contexts/MyContext";
 import Image from "../Image";
 import Contact from "./Contact";
 import styles from "./Home.module.scss";
@@ -12,14 +13,35 @@ import Title from "./Title";
 
 const cx = classNames.bind(styles);
 
-function Home(ref) {
+function Home() {
+  const [firstRender, setFirstRender] = useState(true);
   const introductionRef = useRef();
   const contactRef = useRef();
-  ref = contactRef;
+
+  const modal = useModal();
+
+  useEffect(() => {
+    if (firstRender) {
+      setFirstRender(false);
+      return;
+    }
+    contactRef.current.scrollIntoView({ block: "center", behavior: "smooth" });
+  }, [modal.contactClicked]);
+
+  useEffect(() => {
+    if (firstRender) {
+      setFirstRender(false);
+      return;
+    }
+    introductionRef.current.scrollIntoView({
+      block: "center",
+      behavior: "smooth",
+    });
+  }, [modal.aboutClicked]);
 
   return (
     <div className={cx("wrapper")}>
-      <Title introductionRef={introductionRef} />
+      <Title />
       <Introduction ref={introductionRef} />
       <Projects />
       <Contact ref={contactRef} />

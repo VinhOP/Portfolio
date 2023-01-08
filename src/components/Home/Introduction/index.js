@@ -1,11 +1,5 @@
 import classNames from "classnames/bind";
-import {
-  forwardRef,
-  useEffect,
-  useLayoutEffect,
-  useRef,
-  useState,
-} from "react";
+import { forwardRef, useEffect, useRef, useState } from "react";
 import Image from "../../Image";
 import styles from "./Introduction.module.scss";
 
@@ -61,7 +55,6 @@ const Introduction = forwardRef((props, ref) => {
           <div className={cx("avatar-container")}>
             <Image
               className={cx("avatar")}
-              //src="https://scontent.fsgn8-4.fna.fbcdn.net/v/t1.15752-9/323100719_706738937527014_1903464626068109633_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=ae9488&_nc_ohc=0c0AgT1ZGqwAX8Aluty&_nc_ht=scontent.fsgn8-4.fna&oh=03_AdQPcQbemJ_drQymKUo-VJ3n8Lc0hXS779PK07nJBE03iA&oe=63D9DEFB"
               src="https://scontent.fsgn8-3.fna.fbcdn.net/v/t1.15752-9/322812064_475667091417913_7817652064011576923_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=ae9488&_nc_ohc=1zE_72f8yQUAX_h9lxB&_nc_ht=scontent.fsgn8-3.fna&oh=03_AdTHm0IHUatBsaQz6TtQuoowYy1TW_ztVw85qAJYsLpAYg&oe=63DB1B75"
               alt="avatar"
             />

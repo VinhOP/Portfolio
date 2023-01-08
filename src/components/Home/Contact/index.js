@@ -5,7 +5,7 @@ import Button from "../../Button";
 import styles from "./Contact.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSpinner } from "@fortawesome/free-solid-svg-icons";
-import { useModal } from "../../../Contexts/ModalContext";
+import { useModal } from "../../../Contexts/MyContext";
 import ModalNotice from "../../ModalNotice";
 
 const cx = classNames.bind(styles);
