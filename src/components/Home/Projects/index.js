@@ -36,7 +36,7 @@ function Projects() {
       project_url: "https://vinhop.github.io/music-player/",
       project_screenshot: musicPlayer,
       project_description: "",
-      project_tech_used: "",  
+      project_tech_used: "HTML/CSS . Javascript . ",  
     },
     {
       project_id: 4,
@@ -47,22 +47,22 @@ function Projects() {
         "A weather app that let user know what's the temparature , you can also get the temparature at your current location. ",
       project_tech_used: "Javascript . React . open-weather API . ",
     },
-    {
-      project_id: 5,
-      project_name: "Mini Game",
-      project_url: "",
-      project_screenshot: "",
-      project_description: "",
-      project_tech_used: "",
-    },
-    {
-      project_id: 6,
-      project_name: "Commercial Website",
-      project_url: "",
-      project_screenshot: "",
-      project_description: "",
-      project_tech_used: "",
-    },
+    // {
+    //   project_id: 5,
+    //   project_name: "Mini Game",
+    //   project_url: "",
+    //   project_screenshot: "",
+    //   project_description: "",
+    //   project_tech_used: "",
+    // },
+    // {
+    //   project_id: 6,
+    //   project_name: "Commercial Website",
+    //   project_url: "",
+    //   project_screenshot: "",
+    //   project_description: "",
+    //   project_tech_used: "",
+    // },
   ];
 
   return (

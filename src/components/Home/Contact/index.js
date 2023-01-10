@@ -21,7 +21,6 @@ const Contact = forwardRef((props, ref) => {
   const modal = useModal();
 
   const handleSubmit = (e) => {
-    modal.toggleModal();
     e.preventDefault();
     formRef.current.user_name.value.trim() === "" && setErrorName(true);
     formRef.current.user_email.value.trim() === "" && setErrorEmail(true);
@@ -44,7 +43,13 @@ const Contact = forwardRef((props, ref) => {
         )
         .then(
           (result) => {
-            console.log(result.text);
+            console.log("run");
+            modal.setShowModal(true);
+            setTimeout(() => {
+              modal.setShowModal(false);
+            }, 2000);
+            formRef.current.subject.value = "";
+            formRef.current.message.value = "";
             setIsSending(false);
           },
           (error) => {
@@ -54,13 +59,13 @@ const Contact = forwardRef((props, ref) => {
         );
     }
   };
-  useEffect(() => {
-    if (modal.showModal) {
-      setTimeout(() => {
-        modal.toggleModal();
-      }, 2000);
-    }
-  }, [modal.showModal]);
+  // useEffect(() => {
+  //   if (modal.showModal) {
+  //     setTimeout(() => {
+  //       modal.toggleModal();
+  //     }, 2000);
+  //   }
+  // }, [modal.showModal]);
 
   return (
     <div className={cx("wrapper")} ref={ref}>

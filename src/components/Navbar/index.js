@@ -11,14 +11,12 @@ import Contact from "../Home/Contact";
 import styles from "./Navbar.module.scss";
 import zalo from "../../icons/zalo.png";
 import { faMailBulk } from "@fortawesome/free-solid-svg-icons";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useModal } from "../../Contexts/MyContext";
 
 const cx = classNames.bind(styles);
 
 function Navbar() {
-  const [hide, setHide] = useState(true);
-
   const modal = useModal();
 
   let theEnd = 0;
@@ -29,9 +27,12 @@ function Navbar() {
 
   const controlNavbar = () => {
     if (window.scrollY > theEnd) {
-      setHide(false);
+      document.documentElement.style.setProperty(
+        "--nav-bar-top-position",
+        "-70px"
+      );
     } else {
-      setHide(true);
+      document.documentElement.style.setProperty("--nav-bar-top-position", 0);
     }
     theEnd = window.scrollY;
   };
@@ -44,7 +45,7 @@ function Navbar() {
   }, []);
 
   return (
-    <div className={cx("wrapper", { "hide-nav": !hide })}>
+    <div className={cx("wrapper")}>
       <div className={cx("content")}>
         <div className={cx("left-section")}>
           <h3

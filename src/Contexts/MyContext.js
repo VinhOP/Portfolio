@@ -27,6 +27,7 @@ function ModalProvider({ children }) {
     contactClicked,
     scrollToContact,
     showModal,
+    setShowModal,
     toggleModal,
   };
   return <MyContext.Provider value={classes}> {children} </MyContext.Provider>;
