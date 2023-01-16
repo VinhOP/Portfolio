@@ -1,23 +1,19 @@
-import {
-  faCentercode,
-  faFacebook,
-  faGithub,
-} from "@fortawesome/free-brands-svg-icons";
+import { faFacebook, faGithub } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import classNames from "classnames/bind";
-import Button from "../Button";
 import Image from "../Image";
-import Contact from "../Home/Contact";
 import styles from "./Navbar.module.scss";
 import zalo from "../../icons/zalo.png";
-import { faMailBulk } from "@fortawesome/free-solid-svg-icons";
-import { useEffect } from "react";
-import { useModal } from "../../Contexts/MyContext";
+import { faCaretDown, faMailBulk } from "@fortawesome/free-solid-svg-icons";
+import { useEffect, useState } from "react";
+import { useContexts } from "../../Contexts/MyContext";
 
 const cx = classNames.bind(styles);
 
 function Navbar() {
-  const modal = useModal();
+  const context = useContexts();
+  const [subBar, setSubBar] = useState(false);
+  const [currentLang, setCurrentLang] = useState();
 
   let theEnd = 0;
 
@@ -37,6 +33,12 @@ function Navbar() {
     theEnd = window.scrollY;
   };
 
+  const handleSetLanguage = (e) => {
+    setSubBar(false);
+    localStorage.setItem("lang", e.target.innerHTML.toLowerCase());
+    context.setLanguage(e.target.innerHTML.toLowerCase());
+  };
+
   useEffect(() => {
     window.addEventListener("scroll", controlNavbar);
     return () => {
@@ -44,25 +46,46 @@ function Navbar() {
     };
   }, []);
 
+  useEffect(() => {
+    setCurrentLang(context.language?.toUpperCase());
+  }, [context.language]);
+
   return (
     <div className={cx("wrapper")}>
       <div className={cx("content")}>
         <div className={cx("left-section")}>
           <h3
             className={cx("navbar-btn")}
-            onClick={() => modal.scrollToContact()}
+            onClick={() => context.scrollToContact()}
           >
-            Contact me
+            {context.language === "en" ? "Contact" : "Liên lạc"}
           </h3>
           <h3
             className={cx("navbar-btn")}
-            onClick={() => modal.scrollToAbout()}
+            onClick={() => context.scrollToAbout()}
           >
-            About
+            {context.language === "en" ? "About" : "Về bản thân"}
           </h3>
           <h3 className={cx("navbar-btn")} onClick={handleToTop}>
             Portfolio
           </h3>
+          <div className={cx("language-section")}>
+            <button
+              className={cx("navbar-btn", "language-btn")}
+              onClick={() => setSubBar(!subBar)}
+            >
+              {currentLang}
+              <FontAwesomeIcon icon={faCaretDown} />
+            </button>
+            <div className={cx("lang-list", { active: subBar })}>
+              <h4 onClick={handleSetLanguage} value="en">
+                EN
+              </h4>
+              <h4 onClick={handleSetLanguage} value="vi">
+                VI
+              </h4>
+            </div>
+          </div>
         </div>
         <div className={cx("social-media")}>
           <a

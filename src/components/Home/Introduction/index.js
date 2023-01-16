@@ -1,5 +1,6 @@
 import classNames from "classnames/bind";
 import { forwardRef, useEffect, useRef, useState } from "react";
+import { useContexts } from "../../../Contexts/MyContext";
 import Image from "../../Image";
 import styles from "./Introduction.module.scss";
 
@@ -14,6 +15,7 @@ const Introduction = forwardRef((props, ref) => {
   const [autoType, setAutoType] = useState(true);
   const [index, setIndex] = useState(0);
   const [hobby, setHobby] = useState([]);
+  const context = useContexts();
 
   const letterRef = useRef();
 
@@ -24,6 +26,7 @@ const Introduction = forwardRef((props, ref) => {
       return;
     }
     letterRef.current = hobbies[index].split("");
+
     setTimeout(() => {
       if (autoType && hobby.length < letterRef.current.length) {
         setHobby([...hobby, letterRef.current[hobby.length]]);
@@ -60,7 +63,12 @@ const Introduction = forwardRef((props, ref) => {
             />
           </div>
           <div className={cx("title")}>
-            <h1 className={cx("info")}>I'm Vinh, a chill guy that enjoy :</h1>
+            <h1 className={cx("info")}>
+              {context.language === "en"
+                ? "I'm Vinh, a chill guy that enjoy "
+                : "Mình là Vinh, một anh bạn rất chill với những đam mê"}
+              :
+            </h1>
             <div className={cx("hobby")}>
               {hobby &&
                 hobby.map((letter) => {
@@ -77,7 +85,9 @@ const Introduction = forwardRef((props, ref) => {
           </div>
         </div>
         <p className={cx("description")}>
-          {`I'm a self taught front-end web developer living in Ho Chi Minh City, I have studied web development for 5 months, I want to learn new things and grow into a senior web-developer. In my free time I used to hangout with my friend, training badmintion, playing video games or just simply listening to music with a cup of coffee.`}
+          {context.language === "en"
+            ? "I'm a self taught front-end web developer living in Ho Chi Minh City. I have studied web development for 5 months, I'm confident with things what I have learned in the past months, I believe that if I continue to learn and work at the same time, with time my skill will level up faster than I expected."
+            : "Mình là một lập trình viên front-end tự học với những nền tảng đã có sẵn từ trước, hiện đang sinh sống và làm việc ở Thành Phố Hồ Chí Minh. Với những kinh nghiệm học tập trong suốt 5 tháng qua, mình tự tin nếu tiếp tục duy trì cố gắng học hỏi, làm việc không ngừng thì sẽ tiến bộ vượt bậc và trở thành một seinor developter trong tương lai."}
         </p>
       </div>
     </div>

@@ -2,9 +2,8 @@ import { faReact } from "@fortawesome/free-brands-svg-icons";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import classNames from "classnames/bind";
-import { useEffect, useImperativeHandle, useRef, useState } from "react";
-import { useModal } from "../../Contexts/MyContext";
-import Image from "../Image";
+import { useEffect, useRef, useState } from "react";
+import { useContexts } from "../../Contexts/MyContext";
 import Contact from "./Contact";
 import styles from "./Home.module.scss";
 import Introduction from "./Introduction";
@@ -18,7 +17,7 @@ function Home() {
   const introductionRef = useRef();
   const contactRef = useRef();
 
-  const modal = useModal();
+  const context = useContexts();
 
   useEffect(() => {
     if (firstRender) {
@@ -26,7 +25,7 @@ function Home() {
       return;
     }
     contactRef.current.scrollIntoView({ block: "center", behavior: "smooth" });
-  }, [modal.contactClicked]);
+  }, [context.contactClicked]);
 
   useEffect(() => {
     if (firstRender) {
@@ -37,7 +36,7 @@ function Home() {
       block: "center",
       behavior: "smooth",
     });
-  }, [modal.aboutClicked]);
+  }, [context.aboutClicked]);
 
   return (
     <div className={cx("wrapper")}>
@@ -47,12 +46,12 @@ function Home() {
       <Contact ref={contactRef} />
       <div className={cx("footer")}>
         <p className={cx("description")}>
-          Coded using
+          {context.language === "en" ? "Coded using" : "Được code bằng"}
           <FontAwesomeIcon
             className={cx("logos", "react-logo")}
             icon={faReact}
           />
-          with
+          {context.language === "en" ? "with" : "với nhiều"}
           <FontAwesomeIcon
             className={cx("logos", "heart-logo")}
             icon={faHeart}

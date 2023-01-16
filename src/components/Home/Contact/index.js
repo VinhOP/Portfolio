@@ -1,11 +1,11 @@
 import classNames from "classnames/bind";
-import { forwardRef, useEffect, useRef, useState } from "react";
+import { forwardRef, useContext, useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import Button from "../../Button";
 import styles from "./Contact.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSpinner } from "@fortawesome/free-solid-svg-icons";
-import { useModal } from "../../../Contexts/MyContext";
+import { useContexts } from "../../../Contexts/MyContext";
 import ModalNotice from "../../ModalNotice";
 
 const cx = classNames.bind(styles);
@@ -18,7 +18,11 @@ const Contact = forwardRef((props, ref) => {
 
   const formRef = useRef();
 
-  const modal = useModal();
+  const error = {
+    engMessage: "*This field is required",
+    vietMessage: "*Trường này là bắt buộc",
+  };
+  const context = useContexts();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -44,9 +48,9 @@ const Contact = forwardRef((props, ref) => {
         .then(
           (result) => {
             console.log("run");
-            modal.setShowModal(true);
+            context.setShowModal(true);
             setTimeout(() => {
-              modal.setShowModal(false);
+              context.setShowModal(false);
             }, 2000);
             formRef.current.subject.value = "";
             formRef.current.message.value = "";
@@ -59,18 +63,16 @@ const Contact = forwardRef((props, ref) => {
         );
     }
   };
-  // useEffect(() => {
-  //   if (modal.showModal) {
-  //     setTimeout(() => {
-  //       modal.toggleModal();
-  //     }, 2000);
-  //   }
-  // }, [modal.showModal]);
 
   return (
     <div className={cx("wrapper")} ref={ref}>
       <div className={cx("content")}>
-        <h1 className={cx("title")}> Drop me a line </h1>
+        <h1 className={cx("title")}>
+          {" "}
+          {context.language === "en"
+            ? "Drop me a line"
+            : "Gửi một lời nhắn"}{" "}
+        </h1>
         <form
           className={cx("contact-form")}
           ref={formRef}
@@ -83,14 +85,18 @@ const Contact = forwardRef((props, ref) => {
               type="text"
               name="user_name"
               onChange={() => setErrorName(false)}
-              placeholder="Please Enter Your Name..*"
+              placeholder={
+                context.language === "en"
+                  ? "Please Enter Your Name..*"
+                  : "Xin hãy điền tên bạn..*"
+              }
             />
             <span
               className={cx("error-notice", {
                 active: errorName,
               })}
             >
-              *This field is required
+              {context.language === "en" ? error.engMessage : error.vietMessage}
             </span>
           </div>
 
@@ -101,10 +107,14 @@ const Contact = forwardRef((props, ref) => {
               type="email"
               name="user_email"
               onChange={() => setErrorEmail(false)}
-              placeholder="Please Enter Your Email..*"
+              placeholder={
+                context.language === "en"
+                  ? "Please Enter Your Email..*"
+                  : "Xin hãy điền email..*"
+              }
             />
             <span className={cx("error-notice", { active: errorEmail })}>
-              *This field is required
+              {context.language === "en" ? error.engMessage : error.vietMessage}
             </span>
           </div>
 
@@ -115,10 +125,14 @@ const Contact = forwardRef((props, ref) => {
               type="text"
               name="subject"
               onChange={() => setErrorSubject(false)}
-              placeholder="Please Enter Your Subject..*"
+              placeholder={
+                context.language === "en"
+                  ? "Please Enter Your Subject..*"
+                  : "Xin hãy điền chủ đề..*"
+              }
             />
             <span className={cx("error-notice", { active: errorSubject })}>
-              *This field is required
+              {context.language === "en" ? error.engMessage : error.vietMessage}
             </span>
           </div>
 
@@ -129,11 +143,15 @@ const Contact = forwardRef((props, ref) => {
               type="text"
               name="message"
               onChange={() => setErrorMessage(false)}
-              placeholder="Please Enter Your Message..*"
+              placeholder={
+                context.language === "en"
+                  ? "Please Enter Your Message..*"
+                  : "Xin hãy điền tin nhắn.."
+              }
               rows={6}
             />
             <span className={cx("error-notice", { active: errorMessage })}>
-              *This field is required
+              {context.language === "en" ? error.engMessage : error.vietMessage}
             </span>
           </div>
 
@@ -142,12 +160,14 @@ const Contact = forwardRef((props, ref) => {
             <span>
               {isSending ? (
                 <FontAwesomeIcon className={cx("spinner")} icon={faSpinner} />
-              ) : (
+              ) : context.language === "en" ? (
                 "Send Message"
+              ) : (
+                "Gửi"
               )}
             </span>
           </Button>
-          {modal.showModal && <ModalNotice />}
+          {context.showModal && <ModalNotice />}
         </form>
       </div>
     </div>

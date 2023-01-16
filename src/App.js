@@ -3,13 +3,9 @@ import { publicRoutes } from "./routes";
 import { Fragment } from "react";
 
 function App() {
-  const handleScroll = (e) => {
-    console.log(e.currentTarget.scrollTop);
-    console.log(e.currentTarget.offsetHeight);
-  };
   return (
     <Router>
-      <div className="App" onScroll={handleScroll}>
+      <div className="App">
         <Routes>
           {publicRoutes.map((route, i) => {
             const Layout = route.layout ? route.layout : Fragment;

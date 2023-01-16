@@ -16,10 +16,6 @@
   }
 }
 
-.hide-nav {
-  // top: var(--)
-}
-
 .content {
   width: 100%;
   height: 100%;
@@ -31,12 +27,53 @@
 
 .left-section {
   display: flex;
+  min-width: 400px;
+  position: relative;
 
   .navbar-btn {
     margin-right: 16px;
     font-size: 2rem;
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     cursor: pointer;
+  }
+
+  .language-section {
+    position: absolute;
+    width: 70px;
+    right: 0;
+  }
+
+  .language-btn {
+    width: 100%;
+    padding: 0;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #192455;
+    border: none;
+    color: #6e85b2;
+  }
+
+  .lang-list {
+    display: none;
+    width: 100%;
+    font-size: 1.6rem;
+    background-color: #192455;
+    width: 100%;
+
+    h4 {
+      cursor: pointer;
+      border-top: 1px solid black;
+      padding: 6px;
+
+      &:hover {
+        background-color: #373d55;
+      }
+    }
+  }
+
+  .active {
+    display: block;
   }
 }
 
