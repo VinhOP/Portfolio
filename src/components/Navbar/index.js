@@ -36,7 +36,7 @@ function Navbar() {
   const handleSetLanguage = (e) => {
     setSubBar(false);
     localStorage.setItem("lang", e.target.innerHTML.toLowerCase());
-    context.setLanguage(e.target.innerHTML.toLowerCase());
+    context.setLanguage(e.target.innerHTML.toLowerCase());  
   };
 
   useEffect(() => {
