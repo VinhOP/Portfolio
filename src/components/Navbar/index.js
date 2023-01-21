@@ -36,7 +36,7 @@ function Navbar() {
   const handleSetLanguage = (e) => {
     setSubBar(false);
     localStorage.setItem("lang", e.target.innerHTML.toLowerCase());
-    context.setLanguage(e.target.innerHTML.toLowerCase());  
+    context.setLanguage(e.target.innerHTML.toLowerCase());
   };
 
   useEffect(() => {
@@ -108,18 +108,15 @@ function Navbar() {
             </h4>
             <p> facebook </p>
           </a>
-          <a href="/" className={cx("container")}>
-            <h4 className={cx("title")}>
-              <Image className={cx("brand-icon")} src={zalo} alt={"zalo"} />
-            </h4>
-            <p> zalo </p>
-          </a>
-          <a href="/" className={cx("container")}>
+          <div
+            className={cx("container")}
+            onClick={() => context.scrollToContact()}
+          >
             <h4 className={cx("title")}>
               <FontAwesomeIcon className={cx("brand-icon")} icon={faMailBulk} />
             </h4>
             <p> email </p>
-          </a>
+          </div>
         </div>
       </div>
     </div>

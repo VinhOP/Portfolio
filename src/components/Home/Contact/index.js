@@ -47,7 +47,6 @@ const Contact = forwardRef((props, ref) => {
         )
         .then(
           (result) => {
-            console.log("run");
             context.setShowModal(true);
             setTimeout(() => {
               context.setShowModal(false);

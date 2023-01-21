@@ -60,22 +60,6 @@ function Projects() {
       project_tech_used:
         "HTML/CSS . Javascript . React . Open-weather API . Gh-pages ",
     },
-    // {
-    //   project_id: 5,
-    //   project_name: "Mini Game",
-    //   project_url: "",
-    //   project_screenshot: "",
-    //   project_description: "",
-    //   project_tech_used: "",
-    // },
-    // {
-    //   project_id: 6,
-    //   project_name: "Commercial Website",
-    //   project_url: "",
-    //   project_screenshot: "",
-    //   project_description: "",
-    //   project_tech_used: "",
-    // },
   ];
 
   return (
@@ -117,7 +101,7 @@ function Projects() {
                   outline
                 >
                   <span>
-                    {context.language === "en" ? "Check it out" : "Thử ngay"}{" "}
+                    {context.language === "en" ? "Check it out" : "Xem ngay"}
                   </span>
                 </Button>
               </div>
