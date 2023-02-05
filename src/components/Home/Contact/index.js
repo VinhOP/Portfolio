@@ -67,10 +67,7 @@ const Contact = forwardRef((props, ref) => {
     <div className={cx("wrapper")} ref={ref}>
       <div className={cx("content")}>
         <h1 className={cx("title")}>
-          {" "}
-          {context.language === "en"
-            ? "Drop me a line"
-            : "Gửi một lời nhắn"}{" "}
+          {context.language === "en" ? "Drop me a line" : "Gửi một lời nhắn"}
         </h1>
         <form
           className={cx("contact-form")}
@@ -87,7 +84,7 @@ const Contact = forwardRef((props, ref) => {
               placeholder={
                 context.language === "en"
                   ? "Please Enter Your Name..*"
-                  : "Xin hãy điền tên bạn..*"
+                  : "Xin hãy điền tên..*"
               }
             />
             <span

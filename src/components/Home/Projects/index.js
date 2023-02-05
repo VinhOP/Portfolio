@@ -8,10 +8,17 @@ import musicPlayer from "../../../images/music-player-screenshot.png";
 import weatherApp from "../../../images/weather-app-screenshot.png";
 import Button from "../../Button";
 import { useContexts } from "../../../Contexts/MyContext";
+import { useEffect, useState } from "react";
 
 const cx = classNames.bind(styles);
 function Projects() {
   const context = useContexts();
+
+  const [test, setTest] = useState([]);
+
+  useEffect(() => {
+    setTest(test.push());
+  }, []);
   const projects = [
     {
       project_id: 1,
@@ -45,7 +52,7 @@ function Projects() {
       project_description:
         context.language === "en"
           ? "A music player that will make your day!! Coded using only html/css and javascript. More features will comes in the future!"
-          : "Một chiếc máy nghe nhạc nhỏ nhắn sẽ làm nên 1 ngày làm việc của bạn được hiệu quả hơn!! Được code chỉ bằng Html/css và Javascript. Nhiều tính năng hấp dẫn nữa sẽ được ra mắt trong tương lai!",
+          : "Một chiếc máy nghe nhạc nhỏ nhắn sẽ làm nên 1 ngày làm việc của bạn được hiệu quả hơn!! Được code chỉ với Html/css và Javascript. Nhiều tính năng hấp dẫn nữa sẽ được ra mắt trong tương lai!",
       project_tech_used: "HTML/CSS . Javascript . Gh-pages",
     },
     {

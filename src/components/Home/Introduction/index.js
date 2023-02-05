@@ -66,7 +66,7 @@ const Introduction = forwardRef((props, ref) => {
             <h1 className={cx("info")}>
               {context.language === "en"
                 ? "I'm Vinh, a chill guy that enjoy "
-                : "Mình là Vinh, một anh bạn rất chill với những đam mê"}
+                : "Mình là Vinh, một anh bạn rất chill với những đam mê như"}
               :
             </h1>
             <div className={cx("hobby")}>
@@ -76,18 +76,12 @@ const Introduction = forwardRef((props, ref) => {
                 })}
               <span className={cx("cursor")}>_</span>
             </div>
-            <div className={cx("sticker")}>
-              <Image
-                className={cx("paimon")}
-                src="https://stickerly.pstatic.net/sticker_pack/iYFODRyx2vbEYoLJDuA/C6L2EL/34/913b4ea6-c5cc-46e7-91d7-cd61f429f0ff.png"
-              />
-            </div>
           </div>
         </div>
         <p className={cx("description")}>
           {context.language === "en"
             ? "I'm a self taught front-end web developer living in Ho Chi Minh City. I have studied web development for 5 months, I'm confident with things what I have learned in the past months, I believe that if I continue to learn and work at the same time, with time my skill will level up faster than I expected."
-            : "Mình là một lập trình viên front-end tự học với những nền tảng đã có sẵn từ trước, hiện đang sinh sống và làm việc ở Thành Phố Hồ Chí Minh. Với những kinh nghiệm học tập trong suốt 5 tháng qua, mình tự tin nếu tiếp tục duy trì cố gắng học hỏi, làm việc không ngừng thì sẽ tiến bộ vượt bậc và trở thành một seinor developter trong tương lai."}
+            : "Mình là một lập trình viên front-end tự học với những nền tảng đã có sẵn từ trước, hiện đang sinh sống và làm việc tại Thành Phố Hồ Chí Minh. Với những kinh nghiệm học tập trong suốt 5 tháng qua, mình tự tin nếu tiếp tục duy trì cố gắng học hỏi, làm việc không ngừng thì sẽ tiến bộ vượt bậc và trở thành một fullstack developer trong tương lai!"}
         </p>
       </div>
     </div>
