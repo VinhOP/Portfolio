@@ -202,6 +202,10 @@
     height: 30px;
     display: flex;
     align-items: center;
+    padding: 8px;
+    border: 1px solid;
+    border-radius: 2px;
+
     &:active {
       background-color: #777baf;
     }

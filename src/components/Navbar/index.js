@@ -8,14 +8,14 @@ import {
   faChevronRight,
   faMailBulk,
 } from "@fortawesome/free-solid-svg-icons";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { useContexts } from "../../Contexts/MyContext";
 import { useMediaQueries } from "@react-hook/media-query";
 import MenuItem from "@mui/material/MenuItem/MenuItem";
 import MenuOpen from "@mui/icons-material/MenuOpen";
 import MenuIcon from "@mui/icons-material/Menu";
-import { ChevronLeft, ChevronRight } from "@mui/icons-material";
 import Button from "../Button";
+import uuid from "react-uuid";
 
 const cx = classNames.bind(styles);
 function Navbar() {
@@ -26,24 +26,24 @@ function Navbar() {
 
   const [menuItems, setMenuItems] = useState([
     {
+      id: uuid(),
       title: "Ngôn ngữ",
-      icon: (
+      arrowRight: (
         <FontAwesomeIcon className={cx("arrow-icon")} icon={faChevronRight} />
+      ),
+      arrowDown: (
+        <FontAwesomeIcon className={cx("arrow-icon")} icon={faChevronDown} />
       ),
       isOpen: false,
       children: [
         {
+          id: uuid(),
           title: "EN",
-          icon: (
-            <FontAwesomeIcon
-              className={cx("arrow-icon")}
-              icon={faChevronRight}
-            />
-          ),
           isOpen: false,
           onClick: (e) => handleSetLanguage(e),
         },
         {
+          id: uuid(),
           title: "VI",
           icon: (
             <FontAwesomeIcon
@@ -57,23 +57,34 @@ function Navbar() {
       ],
     },
     {
+      id: uuid(),
       title: "Liên hệ",
-      icon: (
+      arrowRight: (
         <FontAwesomeIcon className={cx("arrow-icon")} icon={faChevronRight} />
+      ),
+      arrowDown: (
+        <FontAwesomeIcon className={cx("arrow-icon")} icon={faChevronDown} />
       ),
       isOpen: false,
       children: [
         {
+          id: uuid(),
           title: "Github",
           isOpen: false,
-          url: "https://github.com/VinhOP?tab=repositories",
+          onClick: () => {
+            window.open("https://github.com/VinhOP?tab=repositories");
+          },
         },
         {
+          id: uuid(),
           title: "Facebook",
           isOpen: false,
-          url: "https://www.facebook.com/EriVinh/",
+          onClick: () => {
+            window.open("https://www.facebook.com/EriVinh/");
+          },
         },
         {
+          id: uuid(),
           title: "Email",
           isOpen: false,
           onClick: () => context.scrollToContact(),
@@ -241,26 +252,25 @@ function Navbar() {
           {!matches.width &&
             menuItems.map((item, index) => {
               return (
-                <div className={cx("menu-items")}>
+                <div className={cx("menu-items")} key={item.id}>
                   <div
                     className={cx("menu-item")}
                     onClick={() => handleOpenMenu(item, index)}
                   >
-                    <i>{item.icon}</i>
+                    <i>{item.isOpen ? item.arrowDown : item.arrowRight}</i>
                     <p>{item.title}</p>
                   </div>
                   {item.isOpen && (
                     <div className={cx("menu-items-child")}>
                       {item.children.map((item) => {
-                        console.log(item);
                         return (
-                          <Button
-                            href={item.url ? item.url : "javascript:;"}
+                          <button
                             className={cx("menu-item-child")}
                             onClick={item.onClick && item.onClick}
+                            key={item.id}
                           >
                             {item.title}
-                          </Button>
+                          </button>
                         );
                       })}
                     </div>

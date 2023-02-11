@@ -10,11 +10,11 @@ function Button({
   outline = false,
   href = false,
   target = false,
-  icon = false,
   className,
 }) {
   const props = {
     onClick,
+
     target,
   };
 
