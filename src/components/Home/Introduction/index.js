@@ -3,7 +3,7 @@ import { forwardRef, useEffect, useRef, useState } from "react";
 import { useContexts } from "../../../Contexts/MyContext";
 import Image from "../../Image";
 import styles from "./Introduction.module.scss";
-
+import avatar from "../../../assets/images/my_avatar.jpg";
 const cx = classNames.bind(styles);
 const Introduction = forwardRef((props, ref) => {
   const [hobbies, setHobbies] = useState([
@@ -56,11 +56,7 @@ const Introduction = forwardRef((props, ref) => {
       <div className={cx("content")} ref={ref}>
         <div className={cx("header")}>
           <div className={cx("avatar-container")}>
-            <Image
-              className={cx("avatar")}
-              src="https://scontent.fsgn8-3.fna.fbcdn.net/v/t1.15752-9/322812064_475667091417913_7817652064011576923_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=ae9488&_nc_ohc=1zE_72f8yQUAX_h9lxB&_nc_ht=scontent.fsgn8-3.fna&oh=03_AdTHm0IHUatBsaQz6TtQuoowYy1TW_ztVw85qAJYsLpAYg&oe=63DB1B75"
-              alt="avatar"
-            />
+            <Image className={cx("avatar")} src={avatar} alt="avatar" />
           </div>
           <div className={cx("title")}>
             <h1 className={cx("info")}>

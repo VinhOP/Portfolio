@@ -1,6 +1,10 @@
 .wrapper {
   width: 100%;
+  min-width: 400px;
   height: 100%;
-
   background-image: "https://img.freepik.com/free-vector/night-ocean-landscape-full-moon-stars-shine_107791-7397.jpg?w=2000";
+}
+
+.content {
+  width: 100%;
 }

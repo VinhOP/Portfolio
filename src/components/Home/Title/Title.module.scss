@@ -16,11 +16,14 @@
 .title {
   font-size: 9rem;
   color: #eb455f;
+  text-align: center;
 }
 
 .description {
   font-size: 6rem;
   color: #bad7e9;
+  text-align: center;
+  margin-top: 40px;
 }
 
 .move-down-btn {
@@ -30,4 +33,25 @@
   font-size: 2rem;
   background-color: var(--primary-color);
   opacity: 0.8;
+}
+
+@media screen and (max-width: 768px) {
+  .title {
+    font-size: 7rem;
+  }
+
+  .description {
+    font-size: 5rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .title {
+    font-size: 6rem;
+  }
+
+  .description {
+    font-size: 5rem;
+    margin-top: 60px;
+  }
 }

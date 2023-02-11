@@ -1,3 +1,4 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import classNames from "classnames/bind";
 import styles from "./Button.module.scss";
 
@@ -9,6 +10,7 @@ function Button({
   outline = false,
   href = false,
   target = false,
+  icon = false,
   className,
 }) {
   const props = {
@@ -27,7 +29,6 @@ function Button({
     outline,
     [className]: className,
   });
-
   return (
     <Comp className={classes} {...props}>
       <span className={cx("title")}> {children} </span>
