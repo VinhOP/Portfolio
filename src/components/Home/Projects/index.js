@@ -1,30 +1,26 @@
 import classNames from "classnames/bind";
 import Image from "../../Image";
 import styles from "./Projects.module.scss";
-import laptop from "../../../images/laptop.png";
-import tiktok from "../../../images/tiktok-screenshot.png";
-import linker from "../../../images/linker-screenshot.png";
-import musicPlayer from "../../../images/music-player-screenshot.png";
-import weatherApp from "../../../images/weather-app-screenshot.png";
+import laptop from "../../../assets/images/laptop.png";
+import images from "../../../assets/images";
+// import linker from "../../../images/linker-screenshot.png";
+// import musicPlayer from "../../../images/music-player-screenshot.png";
+// import weatherApp from "../../../images/weather-app-screenshot.png";
 import Button from "../../Button";
 import { useContexts } from "../../../Contexts/MyContext";
 import { useEffect, useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTriangleExclamation } from "@fortawesome/free-solid-svg-icons";
 
 const cx = classNames.bind(styles);
 function Projects() {
   const context = useContexts();
-
-  const [test, setTest] = useState([]);
-
-  useEffect(() => {
-    setTest(test.push());
-  }, []);
   const projects = [
     {
       project_id: 1,
       project_name: "Tiktok Clone",
       project_url: "https://vinhop.github.io/tiktok/",
-      project_screenshot: tiktok,
+      project_screenshot: images.tiktok,
       project_description:
         context.language === "en"
           ? "TikTok is a social media platform for creating, sharing and discovering short videos. The app is used by young people as an outlet to express themselves through singing, dancing, comedy, and lip-syncing, and allows users to create videos and share them across a community."
@@ -34,21 +30,25 @@ function Projects() {
     },
     {
       project_id: 2,
-      project_name: "Linker App",
-      project_url: "https://vinhop.github.io/theLinker/",
-      project_screenshot: linker,
+      project_name: "Nails Appointment App",
+      project_url: "https://vinhop.github.io/nails-appointment-app/",
+      project_screenshot: images.nailsAppointment,
       project_description:
         context.language === "en"
-          ? "A platform where you and your friends can share videos on youtube to here with only some simple step."
-          : "Một nền tảng nơi bạn và bạn bè của mình có thể chia sẻ video trên youtube tới đây chỉ bằng một số bước đơn giản.",
+          ? "An management app that let you manage your business, such as making new appointment, arrange your staff, create multiple services and other interesting features aswell."
+          : "App quản lý đặt lịch làm nails, khi đăng nhập bạn có thể sắp ếp lịch, quản lý nhân viên/dịch vụ và nhiều chức năng hấp dẫn khác nữa.",
       project_tech_used:
-        "JHTML/CSS . Javascript . React . Firebase . Github pages . SASS",
+        "HTML/CSS . Javascript . React . Axios . React-toastify . Gh-pages ",
+      status:
+        context.language === "en"
+          ? "Webpage under construction"
+          : "Trang web đang trong quá trình phát triển",
     },
     {
       project_id: 3,
       project_name: "Music Player",
       project_url: "https://vinhop.github.io/music-player/",
-      project_screenshot: musicPlayer,
+      project_screenshot: images.musicPlayer,
       project_description:
         context.language === "en"
           ? "A music player that will make your day!! Coded using only html/css and javascript. More features will comes in the future!"
@@ -59,13 +59,25 @@ function Projects() {
       project_id: 4,
       project_name: "Weather App",
       project_url: "https://vinhop.github.io/weather-app/",
-      project_screenshot: weatherApp,
+      project_screenshot: images.weather,
       project_description:
         context.language === "en"
           ? "A place to let user know what's the temparature , you can also get the temparature at your current location!!"
           : "Một nơi để cho người dùng biết nhiệt độ là gì, bạn cũng có thể nhận được nhiệt độ tại vị trí hiện tại của mình!!",
       project_tech_used:
         "HTML/CSS . Javascript . React . Open-weather API . Gh-pages ",
+    },
+    {
+      project_id: 5,
+      project_name: "Linker App",
+      project_url: "https://vinhop.github.io/theLinker/",
+      project_screenshot: images.linker,
+      project_description:
+        context.language === "en"
+          ? "A platform where you and your friends can share videos on youtube to here with only some simple step."
+          : "Một nền tảng nơi bạn và bạn bè của mình có thể chia sẻ video trên youtube tới đây chỉ bằng một số bước đơn giản.",
+      project_tech_used:
+        "JHTML/CSS . Javascript . React . Firebase . Github pages . SASS",
     },
   ];
 
@@ -100,6 +112,14 @@ function Projects() {
                     {context.language === "en" ? "tech used" : "công nghệ"}:
                   </span>
                   {project.project_tech_used}
+                </div>
+                <div className={cx("status")}>
+                  <span className={cx("exclamation-icon")}>
+                    {project.status && (
+                      <FontAwesomeIcon icon={faTriangleExclamation} />
+                    )}
+                  </span>
+                  <span className={cx("status-desc")}> {project.status} </span>
                 </div>
                 <Button
                   href={project.project_url}
