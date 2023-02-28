@@ -1,22 +1,23 @@
 {
   "files": {
-    "main.css": "/Portfolio/static/css/main.080737cc.css",
-    "main.js": "/Portfolio/static/js/main.6bdda317.js",
+    "main.css": "/Portfolio/static/css/main.f7c2557f.css",
+    "main.js": "/Portfolio/static/js/main.a8d0218b.js",
     "static/js/787.1ed0c42c.chunk.js": "/Portfolio/static/js/787.1ed0c42c.chunk.js",
     "static/media/portfolio-bg.png": "/Portfolio/static/media/portfolio-bg.e23176eb7777a707b312.png",
-    "static/media/weather-app-screenshot.png": "/Portfolio/static/media/weather-app-screenshot.e894789cd8d4257f9220.png",
-    "static/media/linker-screenshot.png": "/Portfolio/static/media/linker-screenshot.06bb3d43fbd62964cd78.png",
-    "static/media/tiktok-screenshot.png": "/Portfolio/static/media/tiktok-screenshot.24db71237f39e0ac3ae6.png",
+    "static/media/weather-app.png": "/Portfolio/static/media/weather-app.e894789cd8d4257f9220.png",
+    "static/media/linker-app.png": "/Portfolio/static/media/linker-app.06bb3d43fbd62964cd78.png",
+    "static/media/tiktok-app.png": "/Portfolio/static/media/tiktok-app.24db71237f39e0ac3ae6.png",
     "static/media/my_avatar.jpg": "/Portfolio/static/media/my_avatar.026babd2398cde068f29.jpg",
-    "static/media/music-player-screenshot.png": "/Portfolio/static/media/music-player-screenshot.2f12b2efa12e2554bf25.png",
+    "static/media/music-player-app.png": "/Portfolio/static/media/music-player-app.2f12b2efa12e2554bf25.png",
     "static/media/laptop.png": "/Portfolio/static/media/laptop.c3941aa5ba57fa8e3baf.png",
+    "static/media/nails-appointment-app.png": "/Portfolio/static/media/nails-appointment-app.ff1eb3493b0dbb91eb53.png",
     "index.html": "/Portfolio/index.html",
-    "main.080737cc.css.map": "/Portfolio/static/css/main.080737cc.css.map",
-    "main.6bdda317.js.map": "/Portfolio/static/js/main.6bdda317.js.map",
+    "main.f7c2557f.css.map": "/Portfolio/static/css/main.f7c2557f.css.map",
+    "main.a8d0218b.js.map": "/Portfolio/static/js/main.a8d0218b.js.map",
     "787.1ed0c42c.chunk.js.map": "/Portfolio/static/js/787.1ed0c42c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.080737cc.css",
-    "static/js/main.6bdda317.js"
+    "static/css/main.f7c2557f.css",
+    "static/js/main.a8d0218b.js"
   ]
 }
